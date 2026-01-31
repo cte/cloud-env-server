@@ -11,7 +11,15 @@ app.get("/health", (c) => {
 });
 
 app.get("/api/hello", (c) => {
-  const currentTime = new Date().toISOString();
+  const currentTime = new Date().toLocaleString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true,
+  });
   return c.json({ message: `Hello, World! #${currentTime}` });
 });
 
